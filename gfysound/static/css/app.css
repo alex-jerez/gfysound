@@ -1,0 +1,11 @@
+div.gfyitem {
+  min-height:100px;
+  width:100%;
+  padding-top:50px;
+  margin: 0px auto;
+}
+
+div.row.socialbar{
+  padding-top:20px;
+  padding-bottom:50px;
+}
