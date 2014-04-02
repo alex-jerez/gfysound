@@ -1,0 +1,125 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gfysound.com</title>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/foundation.css" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/app.css" />
+    <script src="{{STATIC_URL}}js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+       <!-- Navigation -->
+ 
+ <!-- <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <!-- Title Area --
+      <li class="name">
+        <h1>
+          <a href="#">
+            gfysound
+          </a>
+        </h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+    </ul>
+   </nav>-->
+ 
+  <!-- GFY -->
+ <div class="row">
+ <div class="small-6 small-centered columns"><img src="{{STATIC_URL}}img/logo.png"></div></div>
+  <!-- Header -->
+  <div class="row">
+    <div class="large-6 small-centered columns">
+      <img class="gfyitem" data-id="PepperyWeepyAracari">
+      <div class="row socialbar">
+      <script type="text/javascript" src="http://www.reddit.com/static/button/button2.js"></script></div>
+    </div>
+  </div>
+ 
+  <!-- End Header -->
+ 
+ 
+  <div class="row">
+    <div class="large-9 large-push-3 columns">
+      <div class="panel">
+      <div class="row">
+      <div class="large-8 columns">
+	  {{form}} 
+ <!--
+	<label><strong>Your Youtube Link:</strong>
+	  <input type="text" placeholder="Youtube URL" />
+	</label><br>
+	<label><strong>Your gif/gfy Link:</strong>
+	  <input type="text" placeholder=".gif URL" />
+	</label><br>
+	<label><strong>A Title:</strong>
+	  <input type="text" placeholder="" />
+	</label>
+    --> 
+      </div>
+      <div class="large-4 centered columns">
+	<a href="#" class="large button">Go!</a>
+      </div>
+    </div>
+    </div>
+      <div class="row">
+        <div class="large-6 columns">
+          <div class="panel">
+          <script src="http://www.reddit.com/r/GifSound/hot/.embed?limit=10&t=month" type="text/javascript"></script>
+          
+          </div>
+        </div>
+        <div class="large-6 columns">
+          <div class="panel"><script src="http://www.reddit.com/r/GifSound/top/.embed?limit=10&t=month" type="text/javascript"></script>
+          </div>
+        </div>
+      </div>
+    </div>
+   <div class="large-3 large-pull-9 panel columns"><!-- <iframe id="ytplayer" type="text/html" width="280" height="210"
+src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1"
+frameborder="0">-->
+  </div>
+ 
+  <!-- Footer -->
+ 
+  <footer class="row">
+  <div class="large-12 columns"><hr />
+      <div class="row">
+ 
+        <div class="large-6 columns">
+            <p>©2014 gfysound</p>
+        </div>
+ 
+        <div class="large-6 columns">
+            <ul class="inline-list right">
+              <!--<li><a href="#">Link 1</a></li>
+              <li><a href="#">Link 2</a></li>
+	      <li><a href="#">Link 3</a></li>-->
+	      <li><a href="mailto:ajerez05@gmail.com">Contact</a></li>
+            </ul>
+        </div>
+ 
+      </div>
+  </div>
+  </footer>
+  <!--gfycat script-->
+    <script>
+ (function(d, t) {
+    var g = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    g.src = 'http://assets.gfycat.com/js/gfyajax-0.517d.js';
+    s.parentNode.insertBefore(g, s);
+}(document, 'script'));
+</script>
+<!-- end gfycat script -->
+    <script src="{{STATIC_URL}}js/vendor/jquery.js"></script>
+    <script src="{{STATIC_URL}}js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
+
+<!--regex for gfycat:(?<=gfycat.com\/)(\w+{1,30})-->
+<!--youtube ID regex - http://stackoverflow.com/questions/4356538/how-can-i-extract-video-id-from-youtubes-link-in-python -->
