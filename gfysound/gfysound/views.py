@@ -19,7 +19,7 @@ class SubmissionCreateView(CreateView):
         return super(SubmissionCreateView, self).form_valid(form)
 
 
-def make_it(request, v='DGPbHUZQ-VE', g='MeanRevolvingCockerspaniel'):
+def make_it(request, v='DGPbHUZQ-VE', g='MeanRevolvingCockerspaniel', st=0):
     '''takes request + two arguments, returns gfysound URL
         v = Youtube video ID
         g = gfycat ID (AdjAdjAnimal)'''
@@ -38,12 +38,14 @@ def make_it(request, v='DGPbHUZQ-VE', g='MeanRevolvingCockerspaniel'):
             g = Gfy(gfycat_url=form.cleaned_data['gfycat_url'])
             #gfyurl = Gfy.get_id(form.cleaned_data['gfycat_url'])
             gfycat = g.get_id()
+            starttime = form.cleaned_data['starttime']
             mydictionary = {
                 'video': video,
                 'gfycat': gfycat,
                 'form': form,
+                'starttime': starttime
             }
-            newurl = '/%s/%s' % (videoid, gfycat)
+            newurl = '/%s+%d/%s' % (videoid, starttime, gfycat)
            # print "video: %s \ngfycat: http://www.gfycat.com/%s\n" % (video.watchv_url, gfycat)
             return redirect(newurl)
         else:
@@ -53,17 +55,21 @@ def make_it(request, v='DGPbHUZQ-VE', g='MeanRevolvingCockerspaniel'):
         form = SubmissionForm()
         print v
         try:
-            video = pafy.new(v).watchv_url
+            video = pafy.new(v)
+            videoid = video.videoid
         except URLError:
-            print "URLError again..."
+            print "URLError..."
             video = "http://www.youtube.com/watch?v=nz7sxt9xeJE"
+            videoid = "nz7sxt9xeJE"
         gfycat = 'http://www.gfycat.com/%s' % g
         print "request is GET"
         mydictionary = {
             'form': form,
             'gfycat': g,
-            'yt_url': video,
+            'video': videoid,
+            'yt_url': video.watchv_url,
             'gfycat_url': gfycat,
+            'starttime': st,
         }
     return render_to_response('main3.html',
                             mydictionary,

@@ -18,6 +18,7 @@ class Submission(models.Model):
         ]
     )
     title = models.CharField(max_length=100, default="Untitled")
+    starttime = models.IntegerField(default=0)
 
     def getYoutubeID(self):
         # Youtube URL => Youtube ID
