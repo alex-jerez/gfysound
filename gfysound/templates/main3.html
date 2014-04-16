@@ -28,13 +28,14 @@
  
   <!-- GFY -->
  <div class="row">
- <div class="small-3 small-centered columns"><img src="{{STATIC_URL}}img/logo3.png"></div></div>
+ <div class="small-3 small-centered columns"><img class="logo" src="{{STATIC_URL}}img/logo3.png"></div></div>
   <!-- Header -->
   <div class="row">
-    <div class="small-4 small-centered columns">
-	    <iframe src="http://gfycat.com/iframe/{{ gfycat }}" frameborder="0" scrolling="no" width="640" height="360" ></iframe> 
-      <div class="row socialbar">
-      <script type="text/javascript" src="http://www.reddit.com/static/button/button2.js"></script></div>
+    <div class="small-4 small-centered columns panel" style="min-width:360; margin-bottom:40px;">
+	    <div class="flex-video">
+		    <iframe src="http://gfycat.com/iframe/{{ gfycat }}" frameborder="0" scrolling="no" width="320" height="180" ></iframe></div>
+            <div class="row socialbar">
+            <script type="text/javascript" src="http://www.reddit.com/static/button/button2.js"></script></div>
     </div>
   </div>
  
@@ -49,11 +50,11 @@
 	      <div class="large-8 columns">
 	      {% csrf_token %}
               <tr><th><label for="id_yt_url">Yt url:</label></th><td><input id="id_yt_url" maxlength="200" name="yt_url" type="text" value="{{yt_url}}" /></td></tr>
-<tr><th><label for="id_gfycat_url">Gfycat url:</label></th><td><input id="id_gfycat_url" maxlength="200" name="gfycat_url" type="text" value="{{gfycat_url}}" /></td></tr>
-<tr><th><label for="id_title">Title:</label></th><td><input id="id_title" maxlength="100" name="title" type="text" value="Untitled" /></td></tr>{{form.starttime}} 
+              <tr><th><label for="id_gfycat_url">Gfycat url:</label></th><td><input id="id_gfycat_url" maxlength="200" name="gfycat_url" type="text" value="{{gfycat_url}}" /></td></tr>
+	      <tr><th><label for="id_title">Title:</label></th><input id="id_starttime" style="width:45px;" name="starttime" type="text" value="0" /></tr>
 	      </div>
 	      <div class="large-4 centered columns">
-		      <input type="submit" value="Go!">
+		      <input type="submit" class="nice blue radius button" value="Go!">
 	      </div>
       </form>    </div>
     </div>
@@ -70,9 +71,9 @@
         </div>
       </div>
     </div>
-   <div class="large-3 large-pull-9 panel columns"><iframe id="ytplayer" type="text/html" width="280" height="210"
+    <div class="large-3 large-pull-9 panel columns"><div class="flex-video"><iframe id="ytplayer" type="text/html" width="280" height="210"
            src="https://www.youtube.com/embed/{{ video }}?autoplay=1&start={{starttime}}"
-frameborder="0">
+	   frameborder="0"></div>
   </div>
  
   <!-- Footer -->

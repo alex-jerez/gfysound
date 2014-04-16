@@ -6,6 +6,9 @@ div.gfyitem {
 }
 
 div.row.socialbar{
-  padding-top:20px;
-  padding-bottom:50px;
+  padding:20px;
+}
+.logo {
+	margin-top:50px;
+	margin-bottom:40px;
 }

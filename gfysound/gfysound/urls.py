@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     #url(r'^$', SubmissionCreateView.as_view()),
     url(r'^$', make_it, name='home'),
     url(r'^submit/$', make_it, name='make_it'),
-    url(r'^(?P<v>[a-zA-Z0-9_-]{11})\+(?P<st>\d{1,4})/(?P<g>[a-zA-Z]\w+)', make_it, name='make_it2'),
+    url(r'^(?P<v>[a-zA-Z0-9_-]{11})\&?(?P<st>\d{1,4})/(?P<g>[a-zA-Z]\w+)', make_it, name='make_it2'),
     url(r'^(?P<v>[a-zA-Z0-9_-]{11})$', SubmissionCreateView.as_view()),
 
     # Examples:

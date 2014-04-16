@@ -45,7 +45,7 @@ def make_it(request, v='DGPbHUZQ-VE', g='MeanRevolvingCockerspaniel', st=0):
                 'form': form,
                 'starttime': starttime
             }
-            newurl = '/%s+%d/%s' % (videoid, starttime, gfycat)
+            newurl = '/%s&%d/%s' % (videoid, starttime, gfycat)
            # print "video: %s \ngfycat: http://www.gfycat.com/%s\n" % (video.watchv_url, gfycat)
             return redirect(newurl)
         else:
