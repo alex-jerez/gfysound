@@ -53,10 +53,10 @@ SERVER_EMAIL = EMAIL_HOST_USER
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'gfysound_db',
-        'USER': 'ajerez',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'NAME': 'gfysound',
+        'USER': 'dbadmin',
+        'PASSWORD': environ['DBPW'],
+        'HOST': '',
         'PORT': '',
         }
     }
@@ -65,11 +65,11 @@ DATABASES = {
 
 ########## CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
-'''CACHES = {
+CACHES = {
     'default': {
         'BACKEND':'django.core.cache.backends.locmem.LocMemCache',
     }
-}'''
+}
 ########## END CACHE CONFIGURATION
 
 

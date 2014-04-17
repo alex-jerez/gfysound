@@ -81,7 +81,7 @@ MEDIA_URL = '/media/'
 ########## STATIC FILE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
 #STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
-STATIC_ROOT = '/webapps/gfysound/gfysound/gfysound/static/'
+STATIC_ROOT = '/home/ajerez/gfysound/gfysound/static/'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/static/'
@@ -194,6 +194,7 @@ THIRD_PARTY_APPS = (
 # Apps specific for this project go here.
 LOCAL_APPS = (
     'gtool',
+    'gfysound',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
