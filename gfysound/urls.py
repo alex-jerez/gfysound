@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import TemplateView
 from .views import SubmissionCreateView, make_it
+from gifsound_util.views import gif2gfy, gifform
 
 
 # Uncomment the next two lines to enable the admin:
@@ -14,6 +15,8 @@ urlpatterns = patterns('',
     url(r'^submit/$', make_it, name='make_it'),
     url(r'^(?P<v>[a-zA-Z0-9_-]{11})/(?P<g>[a-zA-Z]\w+)', make_it, name='make_it2'),
     url(r'^(?P<v>[a-zA-Z0-9_-]{11})$', SubmissionCreateView.as_view()),
+    url(r'^test/$', gif2gfy, name='converting'),
+    url(r'^form/$', gifform.as_view(), name='submitgifsound'),
 
     # Examples:
     # url(r'^$', 'gfysound.views.home', name='home'),

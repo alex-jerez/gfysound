@@ -1,0 +1,7 @@
+{% extends 'base2.html' %}
+{% block content %}
+<form action="/test/" method="post">{% csrf_token %}
+        {{ form.as_p }}
+            <input type="submit" value="Convert gifsound.com URL" />
+        </form>
+{% endblock %}

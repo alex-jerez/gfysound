@@ -23,5 +23,8 @@ class Submission(models.Model):
         # Youtube URL => Youtube ID
         y = pafy.new(self.yt_url)
         return y.videoid
+
     def getGfyID(self):
         return Gfy.get_id(self.gfycat_url)
+
+

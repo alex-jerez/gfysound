@@ -1,0 +1,96 @@
+<!doctype html>
+{% load g_converters %}
+<html class="no-js" lang="en">
+  <head>
+  {% block head %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gfysound.com</title>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/foundation.css" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/app.css" />
+    <script src="{{STATIC_URL}}js/vendor/modernizr.js"></script>
+  </head>
+  {% endblock head %}
+  {% block extrahead %}
+  {% endblock extrahead %}
+  <body>
+ 
+  <!-- GFY -->
+  <!-- Header -->
+ <div class="row">
+ <div class="small-6 small-centered columns"><img src="{{STATIC_URL}}img/logo3.png"></div></div>
+  <div class="row">
+      {% block content %}
+      {% endblock content %}
+    <div class="small-4 small-centered columns">
+    </div>
+  </div>
+  <!-- End Header -->
+ 
+ 
+  <!--<div class="row">
+    <div class="large-9 large-push-3 columns">
+      <div class="panel">
+      <div class="row">
+      <form action="/submit/" method="post">
+	      <div class="large-8 columns">
+	      {% csrf_token %}
+              <tr><th><label for="id_yt_url">Yt url:</label></th><td><input id="id_yt_url" maxlength="200" name="yt_url" type="text" value="{{yt_url}}" /></td></tr>
+<tr><th><label for="id_gfycat_url">Gfycat url:</label></th><td><input id="id_gfycat_url" maxlength="200" name="gfycat_url" type="text" value="{{gfycat_url}}" /></td></tr>
+<tr><th><label for="id_title">Title:</label></th><td><input id="id_title" maxlength="100" name="title" type="text" value="Untitled" /></td></tr> 
+	      </div>
+	      <div class="large-4 centered columns">
+		      <input type="submit" value="Go!">
+	      </div>
+      </form>    </div>
+    </div>
+      <div class="row">
+        <div class="large-6 columns">
+          <div class="panel">
+          <script src="http://www.reddit.com/r/GifSound/hot/.embed?limit=10&t=month" type="text/javascript"></script>
+          
+          </div>
+        </div>
+        <div class="large-6 columns">
+          <div class="panel"><script src="http://www.reddit.com/r/GifSound/top/.embed?limit=10&t=month" type="text/javascript"></script>
+          </div>
+        </div>
+      </div>
+    </div>
+   <div class="large-3 large-pull-9 panel columns"><iframe id="ytplayer" type="text/html" width="280" height="210"
+		   src="https://www.youtube.com/embed/{{ video.videoid }}?autoplay=1"
+frameborder="0">
+  </div>-->
+ 
+  <!-- Footer -->
+ 
+  <footer class="row">
+  <div class="large-12 columns"><hr />
+      <div class="row">
+ 
+        <div class="large-6 columns">
+            <p>©2014 gfysound</p>
+        </div>
+ 
+        <div class="large-6 columns">
+            <ul class="inline-list right">
+              <!--<li><a href="#">Link 1</a></li>
+              <li><a href="#">Link 2</a></li>
+	      <li><a href="#">Link 3</a></li>-->
+	      <li><a href="mailto:ajerez05@gmail.com">Contact</a></li>
+            </ul>
+        </div>
+ 
+      </div>
+  </div>
+  </footer>
+    <script src="{{STATIC_URL}}js/vendor/jquery.js"></script>
+    <script src="{{STATIC_URL}}js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
+
+<!--regex for gfycat:(?<=gfycat.com\/)(\w+{1,30})-->
+<!--youtube ID regex - http://stackoverflow.com/questions/4356538/how-can-i-extract-video-id-from-youtubes-link-in-python -->

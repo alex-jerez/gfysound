@@ -1,11 +1,13 @@
 from .forms import SubmissionForm
 from django.views.generic.edit import CreateView
+from django.http import Http404
 #for MakeView
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 import pafy
 from gtool import models
 from gtool.models import Gfy
+#from gtool.convert import grab_convert_url, grab_youtube_url, make_gfysound_link
 from urllib2 import URLError
 
 
@@ -68,3 +70,15 @@ def make_it(request, v='DGPbHUZQ-VE', g='MeanRevolvingCockerspaniel'):
     return render_to_response('main3.html',
                             mydictionary,
                             context_instance=context)
+
+
+def make_gfysound_url(request):
+    '''receive gifsound link, return gfysound link'''
+    if request.method == 'POST':
+        data = request.POST.data
+        gfy_link = grab_convert_url(data)
+        yt_link = grab_youtube_url(data)
+        newurl = make_gfysound_link(gfy_link, yt_link) # function not yet made
+        return redirect(newurl)
+    else:
+        raise Http404
