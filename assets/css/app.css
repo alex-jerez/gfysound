@@ -9,3 +9,6 @@ div.row.socialbar{
   padding-top:20px;
   padding-bottom:50px;
 }
+div.flex-video iframe html body {
+text-align:center;
+}

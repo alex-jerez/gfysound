@@ -1,1 +1,53 @@
-<h1>Whoops!</h1>
+<!doctype html>
+{% load g_converters %}
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gfysound.com</title>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/foundation.css" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/app.css" />
+    <script src="{{STATIC_URL}}js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+  <!-- GFY -->
+ <div class="row">
+ <div class="small-3 small-centered columns"><a href="{% url 'home' %}"><img class="logo" src="{{STATIC_URL}}img/logo3.png"></a></div></div>
+ <div class="row">
+<div class="large-5 large-centered columns"> <h3>Something went wrong... Did you enter the URLs correctly?</h3>
+ <a href="/">Go Back</a></div>
+</div> 
+  <!-- Footer -->
+ 
+  <footer class="row">
+  <div class="large-12 columns"><hr />
+      <div class="row">
+ 
+        <div class="large-6 columns">
+            <p>©2014 gfysound</p>
+        </div>
+ 
+        <div class="large-6 columns">
+            <ul class="inline-list right">
+              <!--<li><a href="#">Link 1</a></li>
+              <li><a href="#">Link 2</a></li>
+	      <li><a href="#">Link 3</a></li>-->
+	      <li><a href="mailto:ajerez05@gmail.com">Contact</a></li>
+            </ul>
+        </div>
+ 
+      </div>
+  </div>
+  </footer>
+    <script src="{{STATIC_URL}}js/vendor/jquery.js"></script>
+    <script src="{{STATIC_URL}}js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+{% include 'analytics.html' %}
+  </body>
+</html>
+{% comment %}
+<!--regex for gfycat:(?<=gfycat.com\/)(\w+{1,30})-->
+<!--youtube ID regex - http://stackoverflow.com/questions/4356538/how-can-i-extract-video-id-from-youtubes-link-in-python -->
+{% endcomment %}

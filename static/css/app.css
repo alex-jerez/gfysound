@@ -13,3 +13,6 @@ div.row.socialbar{
 	margin-top:50px;
 	margin-bottom:40px;
 }
+div.flex-video iframe html body {
+text-align:center;
+}

@@ -19,8 +19,8 @@ class SubmissionCreateView(CreateView):
         return super(SubmissionCreateView, self).form_valid(form)
 
 
-def make_it(request, v='DGPbHUZQ-VE', g='MeanRevolvingCockerspaniel'):
-    '''takes request + two arguments, returns gfysound URL
+def make_it(request, v='DGPbHUZQ-VE', g='MeanRevolvingCockerspaniel', st=0):
+    ''' st = start time (default 0)
         v = Youtube video ID
         g = gfycat ID (AdjAdjAnimal)'''
     # get context from request
@@ -36,27 +36,35 @@ def make_it(request, v='DGPbHUZQ-VE', g='MeanRevolvingCockerspaniel'):
                 video = "http://www.youtube.com/watch?v=nz7sxt9xeJE"
                 videoid = "nz7sxt9xeJE"
             g = Gfy(gfycat_url=form.cleaned_data['gfycat_url'])
+            st = form.cleaned_data['starttime']
             #gfyurl = Gfy.get_id(form.cleaned_data['gfycat_url'])
             gfycat = g.get_id()
             mydictionary = {
                 'video': video,
+                'videoid': videoid,
                 'gfycat': gfycat,
                 'form': form,
+                'st': st,
+                'v': v,
             }
-            newurl = '/%s/%s' % (videoid, gfycat)
+            if st == 0:
+                newurl = '/%s/%s' % (videoid, gfycat)
+            else:
+                newurl = '/%s&%d/%s' % (videoid, st, gfycat)
            # print "video: %s \ngfycat: http://www.gfycat.com/%s\n" % (video.watchv_url, gfycat)
             return redirect(newurl)
         else:
             print "form is not valid\n"
             print form.errors
+            return redirect('/error/')
     else:
         form = SubmissionForm()
         print v
         try:
             video = pafy.new(v).watchv_url
-        except URLError:
+        except (URLError, AttributeError):
             print "URLError again..."
-            video = "http://www.youtube.com/watch?v=nz7sxt9xeJE"
+            video = ""#http://www.youtube.com/watch?v=nz7sxt9xeJE"
         gfycat = 'http://www.gfycat.com/%s' % g
         print "request is GET"
         mydictionary = {
@@ -64,6 +72,8 @@ def make_it(request, v='DGPbHUZQ-VE', g='MeanRevolvingCockerspaniel'):
             'gfycat': g,
             'yt_url': video,
             'gfycat_url': gfycat,
+            'st': st,
+            'v': v,
         }
     return render_to_response('main3.html',
                             mydictionary,
