@@ -51,6 +51,7 @@ def make_it(request, v='DGPbHUZQ-VE', g='MeanRevolvingCockerspaniel', st=0):
                 newurl = '/%s/%s' % (videoid, gfycat)
             else:
                 newurl = '/%s&%d/%s' % (videoid, st, gfycat)
+            mydictionary['newurl']=newurl
            # print "video: %s \ngfycat: http://www.gfycat.com/%s\n" % (video.watchv_url, gfycat)
             return redirect(newurl)
         else:
