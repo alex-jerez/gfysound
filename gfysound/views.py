@@ -4,11 +4,8 @@ from django.views.generic.edit import CreateView
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 import pafy
-from gtool import models
 from gtool.models import Gfy
 from urllib2 import URLError
-from settings import production
-from django.contrib.sites.shortcuts import get_current_site
 
 
 class SubmissionCreateView(CreateView):
@@ -26,8 +23,6 @@ def make_it(request, v='DGPbHUZQ-VE', g='MeanRevolvingCockerspaniel', st=0):
         g = gfycat ID (AdjAdjAnimal)'''
     # get context from request
     context = RequestContext(request)
-    sitename = get_current_domain(request)
-    print(sitename)
     #if http method is POST...
     if request.method == 'POST':
         form = SubmissionForm(request.POST)
@@ -78,7 +73,6 @@ def make_it(request, v='DGPbHUZQ-VE', g='MeanRevolvingCockerspaniel', st=0):
             'gfycat_url': gfycat,
             'st': st,
             'v': v,
-            'SITE': sitename.domain, 
         }
     return render_to_response('main3.html',
                             mydictionary,
